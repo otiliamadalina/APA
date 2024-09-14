@@ -1,34 +1,23 @@
-#include <cmath>
-#include <ctime>
 #include <iostream>
 #include "fib_algs.h"
-#include <chrono>
-using namespace std::chrono;
-using namespace std;
 
-double get_exec_time_in_sec_of_fib_alg(int(*fib_func)(int), int n) {
-    auto start = high_resolution_clock::now();
-    fib_func(n);
-    auto end = high_resolution_clock::now();
-    duration<double> elapsed = end - start;
-    return elapsed.count();
-}
+using namespace std;
 
 int main() {
 
-    int n = 100;
+    int array[7] = {5, 7, 8, 9, 10, 12, 14};
+    for (int i = 0; i < 7; i++) {
 
-    double recursive_time = get_exec_time_in_sec_of_fib_alg(fib_recursive, n);
-    cout << "Time taken for fib_recursive(" << n << ") = " << recursive_time << " seconds" << endl;
+        fib_recursive(array[i]);
+        cout << endl << "Fibonacci recursiv iteratii: " << iteration_recursive;
 
-    double iterative_time = get_exec_time_in_sec_of_fib_alg(fib_iterative, n);
-    cout << "Time taken for fib_iterative(" << n << ") = " << iterative_time << " seconds" << endl;
+        fib_iterative(array[i]);
+        cout << endl << "Fibonacci iterativ iteratii: " << iteration_iterative;
 
+        fib_binary(array[i]);
+        cout << endl << "Fibonacci calcul binar iteratii: " << iteration_binary;
 
-    double binary_time = get_exec_time_in_sec_of_fib_alg(fib_binary, n);
-    cout << "Time taken for fib_binary(" << n << ") = " << binary_time << " seconds" << endl;
-
-
+    }
     return 0;
 }
 
