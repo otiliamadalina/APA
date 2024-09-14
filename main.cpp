@@ -16,7 +16,7 @@ int main() {
 
         fib_binary(array[i]);
         cout << endl << "Fibonacci calcul binar iteratii: " << iteration_binary;
-
+        cout << "\n";
     }
     return 0;
 }

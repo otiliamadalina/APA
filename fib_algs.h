@@ -1,9 +1,9 @@
 #ifndef APA_WORK_FIB_ALGS_H
 #define APA_WORK_FIB_ALGS_H
 
-long int iteration_recursive = 0;
-long int iteration_iterative = 0;
-long int iteration_binary = 0;
+extern long int iteration_recursive;
+extern long int iteration_iterative;
+extern long int iteration_binary;
 
 long long fib_recursive(int n);
 

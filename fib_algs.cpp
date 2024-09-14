@@ -1,6 +1,9 @@
 #include "fib_algs.h"
-
 using namespace std;
+
+long int iteration_recursive = 0;
+long int iteration_iterative = 0;
+long int iteration_binary = 0;
 
 long long fib_recursive(int n) {
     if (n >= 0 && n <= 1) {
