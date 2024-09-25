@@ -24,11 +24,7 @@ long long fib_iterative(int n) {
 }
 
 long long fib_binary(int n) {
-    int i, j, k, h, t;
-    i = 1;
-    j = 0;
-    k = 0;
-    h = 1;
+    int i = 1, j = 0, k = 0, h = 1, t;
     iteration_binary += 4;
     while (n > 0) {
         if (n % 2 != 0) {
@@ -39,7 +35,7 @@ long long fib_binary(int n) {
         }
         t = h * h;
         h = 2 * k * h + t;
-        k + k * k + t;
+        k = k * k + t;
         n = n / 2;
         iteration_binary += 11;
     }
