@@ -15,7 +15,7 @@ int main() {
        cout << "[Iterations]\t[Algorithm]\t[Time(s)]\n-----------------------------------------" << endl;
 
 
-        //------------------
+        //------------------ Recursive Fibonacci ------------------
         start_fib_recursive = std::chrono::system_clock::now();
         fib_recursive(choice);
         cout << iteration_recursive << "\t\tRECURSIVE\t";
@@ -25,7 +25,7 @@ int main() {
         cout << elapsed_seconds_r.count() << "s\n";
 
 
-        //------------------
+        //------------------ Iterative Fibonacci ------------------
         start_fib_iterative = std::chrono::system_clock::now();
         fib_iterative(choice);
         cout << iteration_iterative << "\t\tITERATIVE\t";
@@ -35,7 +35,7 @@ int main() {
         cout << elapsed_seconds_i.count() << "s\n";
 
 
-        //------------------
+        //------------------ Binary Fibonacci ------------------
         start_fib_binary = std::chrono::system_clock::now();
         fib_binary(choice);
         cout << iteration_binary << "\t\tBINARY\t";
