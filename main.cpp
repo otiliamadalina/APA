@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
 
-    int array[7] = {5, 7, 8, 9, 10, 12, 70};
+    int array[7] = {5, 7, 8, 9, 19, 120, 700};
     cout << "Fibonacci [iteratii]:\n" << endl;
     for (int i = 0; i < 7; i++) {
 
