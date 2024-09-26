@@ -20,7 +20,7 @@ long long fib_recursive(int n) { // O(2^n)
 long long fib_iterative(int n) { // O(n)
 
     int i = 1, j = 0;
-    for (int k = 1; k < n; k++) {
+    for (int k = 1; k <= n; k++) {
         j = i + j;
         i = j - i;
         iteration_iterative++;
