@@ -6,11 +6,13 @@ long int iteration_iterative = 0;
 long int iteration_binary = 0;
 
 long long fib_recursive(int n) { // O(2^n)
-    if (n >= 0 && n <= 1) {
+    if (n < 2) {
         iteration_recursive++;
         return n;
+    } else {
+        iteration_recursive++;
+        return fib_recursive(n - 1) + fib_recursive(n - 2);
     }
-    return fib_recursive(n - 1) + fib_recursive(n - 2);
 }
 
 long long fib_iterative(int n) { // O(n)
