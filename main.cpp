@@ -1,50 +1,50 @@
 #include <iostream>
 #include "fib_algs.h"
-#include <chrono>
-#include <iomanip>
+#include <ctime>
 using namespace std;
 
 int main() {
 
+    clock_t start_1, finish_1;
+    clock_t start_2, finish_2;
+    clock_t start_3, finish_3;
+
+    long long fib1;
+    long long fib2;
+    long long fib3;
+
     int choice;
     do {
-        cout << "\nChoose a number: " << endl;
+        cout << "\nChoose a number: ";
         cin >> choice;
-        std::chrono::time_point<std::chrono::system_clock> start_fib_recursive, end_fib_recursive, start_fib_iterative, end_fib_iterative, start_fib_binary, end_fib_binary;
 
-       cout << "[Iterations]\t[Algorithm]\t[Time(s)]\n-----------------------------------------" << endl;
-
+        cout << "\n[Iterations]\t[Algorithm]\t[Time(s)]\t[Number]\n---------------------------------------------------------" << endl;
 
         //------------------ Recursive Fibonacci ------------------
-        start_fib_recursive = std::chrono::system_clock::now();
-        fib_recursive(choice);
+
+        start_1 = clock();
+        fib1 = fib_recursive(choice);
         cout << iteration_recursive << "\t\tRECURSIVE\t";
-
-        end_fib_recursive = std::chrono::system_clock::now();
-        std::chrono::duration<double> elapsed_seconds_r = end_fib_recursive - start_fib_recursive;
-        cout << elapsed_seconds_r.count() << "s\n";
-
+        finish_1 = clock() - start_1;
+        cout << (float) finish_1 / CLOCKS_PER_SEC << "s.\t\t" << fib1 << endl;
 
         //------------------ Iterative Fibonacci ------------------
-        start_fib_iterative = std::chrono::system_clock::now();
-        fib_iterative(choice);
+
+        start_2 = clock();
+        fib2 = fib_iterative(choice);
         cout << iteration_iterative << "\t\tITERATIVE\t";
-
-        end_fib_iterative = std::chrono::system_clock::now();
-        std::chrono::duration<double> elapsed_seconds_i = end_fib_iterative - start_fib_iterative;
-        cout << elapsed_seconds_i.count() << "s\n";
-
+        finish_2 = clock() - start_2;
+        cout << (float) finish_2 / CLOCKS_PER_SEC << "s.\t\t" << fib2 << endl;
 
         //------------------ Binary Fibonacci ------------------
-        start_fib_binary = std::chrono::system_clock::now();
-        fib_binary(choice);
-        cout << iteration_binary << "\t\tBINARY\t";
 
-        end_fib_binary = std::chrono::system_clock::now();
-        std::chrono::duration<double> elapsed_seconds_b = end_fib_binary - start_fib_binary;
-        cout << elapsed_seconds_b.count() << "s\n";
+        start_3 = clock();
+        fib3 = fib_binary(choice);
+        cout << iteration_binary << "\t\tBINARY\t\t";
+        finish_3 = clock() - start_3;
+        cout << (float) finish_3 / CLOCKS_PER_SEC << "s.\t\t" << fib3 << endl;
 
-        cout << "-----------------------------------------" << endl;
+        cout << "---------------------------------------------------------" << endl;
 
     } while(choice);
 

@@ -2,9 +2,9 @@
 
 using namespace std;
 
-long int iteration_recursive = 0;
-long int iteration_iterative = 0;
-long int iteration_binary = 0;
+long long iteration_recursive = 0;
+long long iteration_iterative = 0;
+long long iteration_binary = 0;
 
 long long fib_recursive(int n) { // O(2^n)
 
@@ -37,17 +37,15 @@ long long fib_binary(int n) {
     h = 1;
 
     while (n > 0) {
-        iteration_binary++;
-        if (n % 2 == 0) {
+       iteration_binary++;
+        if (n % 2 == 1) {
             t = j * h;
-            j = i * h + j * k + t;
-            i = i * k + t;
+            j = (i * h) + (j * k) + t;
+            i = (i * k) + t;
         }
-
         t = h * h;
-        h = 2 * k * h + t;
-        k + k * k + t;
-        k = k * k + t;
+        h = (2 * k * h) + t;
+        k = (k * k) + t;
         n = n / 2;
     }
     return j;
