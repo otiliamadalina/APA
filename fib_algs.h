@@ -9,6 +9,6 @@ long long fib_recursive(int n);
 
 long long fib_iterative(int n);
 
-long long fib_binary(int n);
+long long fib_matrix_exp(int n);
 
 #endif //APA_WORK_FIB_ALGS_H

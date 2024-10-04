@@ -27,7 +27,7 @@ long long int fib_iterative(int n) { // O(n)
     return j;
 }
 
-long long int fib_binary(int n) { // O(log(n))
+long long int fib_matrix_exp(int n) { // O(log(n))
 
     long long int i, j, k, h, t;
     i = 1;

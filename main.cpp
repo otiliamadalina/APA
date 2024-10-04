@@ -39,7 +39,7 @@ int main() {
         //------------------ Matrix exponentiation Fibonacci ------------------
 
         start_3 = clock();
-        fib3 = fib_binary(choice);
+        fib3 = fib_matrix_exp(choice);
         cout << iteration_binary << "\t\tBINARY\t\t";
         finish_3 = clock() - start_3;
         cout << (double) finish_3 / CLOCKS_PER_SEC << "s.\t\t" << fib3 << endl;
