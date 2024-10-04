@@ -1,11 +1,11 @@
 #include "fib_algs.h"
 using namespace std;
 
-long long iteration_recursive = 0;
-long long iteration_iterative = 0;
-long long iteration_binary = 0;
+long long int iteration_recursive = 0;
+long long int iteration_iterative = 0;
+long long int iteration_binary = 0;
 
-long long fib_recursive(int n) { // O(2^n)
+long long int fib_recursive(int n) { // O(2^n)
 
     if (n < 2) {
         iteration_recursive++;
@@ -16,10 +16,10 @@ long long fib_recursive(int n) { // O(2^n)
     }
 }
 
-long long fib_iterative(int n) { // O(n)
+long long int fib_iterative(int n) { // O(n)
 
-    long long i = 1, j = 0;
-    for (long long k = 1; k <= n; k++) {
+    long long int i = 1, j = 0;
+    for (long long int k = 1; k <= n; k++) {
         j = i + j;
         i = j - i;
         iteration_iterative++;
@@ -27,9 +27,9 @@ long long fib_iterative(int n) { // O(n)
     return j;
 }
 
-long long fib_binary(int n) {
+long long int fib_binary(int n) { // O(log(n))
 
-    long long i, j, k, h, t;
+    long long int i, j, k, h, t;
     i = 1;
     j = 0;
     k = 0;
