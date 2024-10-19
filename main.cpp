@@ -16,38 +16,41 @@ void generate_random_array() {
 }
 
 int main() {
+    srand(time(nullptr));
+    int choice;
 
-    srand(time(NULL));
+    do {
+        cout << "\nChoose a number of elements: ";
+        cin >> n;
 
-    printf("Nr of elements: ");
-    scanf("%d", &n);
+        generate_random_array();
 
-    generate_random_array();
+        for (int i = 0; i < n; i++) {
+            b[i] = a[i];
+        }
 
-    for (int i = 0; i < n; i++) {
-        b[i] = a[i];
-    }
+        auto start = chrono::high_resolution_clock::now();
+        merge_sort(0, n - 1);
+        auto end = chrono::high_resolution_clock::now();
+        double merge_time = chrono::duration<double>(end - start).count();
 
-    clock_t start = clock();
-    merge_sort(0, n - 1);
-    clock_t end = clock();
-    double merge_time = ((double)(end - start)) / CLOCKS_PER_SEC;
+        cout << "\n[Iterations]\t[Algorithm]\t[Time(s)]\n";
+        cout << "---------------------------------------------------------\n";
+        cout << merge_iterations << "\t\tMERGE SORT\t" << fixed << setprecision(6) << merge_time << "s" << endl;
 
-    printf("\nMergeSort: %.6f sec\n", merge_time);
-    printf("iter: %d\n", merge_iterations);
+        for (int i = 0; i < n; i++) {
+            a[i] = b[i];
+        }
 
-    for (int i = 0; i < n; i++) {
-        a[i] = b[i];
-    }
+        start = chrono::high_resolution_clock::now();
+        quick_sort(0, n - 1);
+        end = chrono::high_resolution_clock::now();
+        double quick_time = chrono::duration<double>(end - start).count();
 
-    start = clock();
-    quick_sort(0, n - 1);
-    end = clock();
-    double quick_time = ((double)(end - start)) / CLOCKS_PER_SEC;
+        cout << quick_iterations << "\t\tQUICK SORT\t" << fixed << setprecision(6) << quick_time << "s" << endl;
+        cout << "---------------------------------------------------------\n";
 
-    printf("\nQuickSort: %.6f sec\n", quick_time);
-    printf("iter: %d\n", quick_iterations);
+    } while (choice != 0);
 
     return 0;
-
 }

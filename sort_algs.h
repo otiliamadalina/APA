@@ -4,6 +4,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <iomanip>
+#include <chrono>
 
 using namespace std;
 
@@ -19,6 +21,7 @@ extern int quick_iterations;
 void generate_random_array();
 
 void merge_sort(int left, int right);
+
 void quick_sort(int left, int right);
 
 #endif //APA_WORK_SORT_ALGS_H
