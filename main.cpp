@@ -1,6 +1,6 @@
 #include "sort_algs.h"
 
-const int MAX_SIZE = 100000;
+const int MAX_SIZE = 1000000;
 int a[MAX_SIZE];
 int b[MAX_SIZE];
 int merged_array[MAX_SIZE];
@@ -16,41 +16,48 @@ void generate_random_array() {
 }
 
 int main() {
+
     srand(time(nullptr));
-    int choice;
 
-    do {
-        cout << "\nChoose a number of elements: ";
-        cin >> n;
+    cout << "Nr of elements: ";
+    cin >> n;
 
-        generate_random_array();
+    generate_random_array();
 
-        for (int i = 0; i < n; i++) {
-            b[i] = a[i];
-        }
+    for (int i = 0; i < n; i++) {
+        b[i] = a[i];
+    }
 
-        auto start = chrono::high_resolution_clock::now();
-        merge_sort(0, n - 1);
-        auto end = chrono::high_resolution_clock::now();
-        double merge_time = chrono::duration<double>(end - start).count();
+    clock_t start_merge, end_merge;
+    clock_t start_quick, end_quick;
 
-        cout << "\n[Iterations]\t[Algorithm]\t[Time(s)]\n";
-        cout << "---------------------------------------------------------\n";
-        cout << merge_iterations << "\t\tMERGE SORT\t" << fixed << setprecision(6) << merge_time << "s" << endl;
+    start_merge = clock();
+    merge_sort(0, n - 1);
+    end_merge = clock();
+    double merge_time = ((double)(end_merge - start_merge)) / CLOCKS_PER_SEC;
 
-        for (int i = 0; i < n; i++) {
-            a[i] = b[i];
-        }
+    cout << "\nMerge Sort: \n" << fixed << setprecision(6) << merge_time << " sec\n";
+    cout << "iter: " << merge_iterations << "\n";
 
-        start = chrono::high_resolution_clock::now();
-        quick_sort(0, n - 1);
-        end = chrono::high_resolution_clock::now();
-        double quick_time = chrono::duration<double>(end - start).count();
+/*
+    start_merge = clock();
+    merge_sort(0, n - 1);
+    cout << merge_iterations <<endl;
+    end_merge = clock() - start_merge;
+    cout << (double) end_merge / CLOCKS_PER_SEC << "s." << endl;
+*/
 
-        cout << quick_iterations << "\t\tQUICK SORT\t" << fixed << setprecision(6) << quick_time << "s" << endl;
-        cout << "---------------------------------------------------------\n";
+    for (int i = 0; i < n; i++) {
+        a[i] = b[i];
+    }
 
-    } while (choice != 0);
+    start_quick = clock();
+    quick_sort(0, n - 1);
+    end_quick = clock();
+    double quick_time = ((double)(end_quick - start_quick)) / CLOCKS_PER_SEC;
+
+    cout << "\nQuick Sort: \n" << fixed << setprecision(6) << quick_time << " sec\n";
+    cout << "iter: " << quick_iterations << "\n";
 
     return 0;
 }

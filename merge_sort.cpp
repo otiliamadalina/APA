@@ -27,7 +27,7 @@ void merge_sort(int left, int right) {
             merged_array[i++] = a[right_i++];
         }
 
-        for (int i = left; i <= right; i++)
+        for (i = left; i <= right; i++)
             a[i] = merged_array[i - left];
     }
 }
