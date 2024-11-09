@@ -7,11 +7,12 @@ using namespace std;
 
 const int INF = 999;
 int edges[4];
-int nr_of_nodes[5] = {10, 20, 30, 40, 50 };
+int nr_of_nodes[5] = {10, 20, 30, 40, 50};
 
 int parent[MAX] = {0}, visited[MAX] = {0};
 int Prim_Graph[MAX][MAX], Kruskal_Graph[MAX][MAX];
 int it1 = 0, it2 = 0;
+
 
 void initialization() {
     it1 = it2 = 0;
@@ -26,7 +27,7 @@ void initialization() {
     }
 }
 
-void greate_graph(int nr_of_nodes, int dens) {
+void create_graph(int nr_of_nodes, int dens) {
     int k = 0;
     cout << "\nNodes: " << edges[dens] << endl;
 
@@ -50,7 +51,19 @@ void greate_graph(int nr_of_nodes, int dens) {
             }
 }
 
+void display_graph(int nr_of_nodes) {
+    cout << "Weighted adjacency matrix:" << endl;
+    for (int i = 0; i < nr_of_nodes; i++) {
+        for (int j = 0; j < nr_of_nodes; j++)
+            if (Prim_Graph[i][j] != 999)
+                cout << Prim_Graph[i][j] << " ";
+            else cout << "0 ";
+        cout << endl;
+    }
+}
+
 //============================PRIM==========================
+
 void Prim(int n) {
     int i, p, min, k, x = 0;
     visited[x] = 1;
@@ -84,6 +97,7 @@ void Prim(int n) {
 }
 
 //===============================KRUSKAL==========================
+
 int find(int i) {
     while (parent[i]) {
         i = parent[i];
@@ -125,6 +139,7 @@ void Kruskal(int nr_of_edges) {
     cout << "Nr. of iterations <K> : " << it2 << endl;
 }
 
+
 int main() {
 
     srand(time(nullptr));
@@ -136,8 +151,8 @@ int main() {
         for (int j = 0; j < 4; j++) {
             switch (j) {
                 case 0:
-                cout << "\tFavorable case " << nr_of_nodes[i] << " nodes.";
-                break;
+                    cout << "\tFavorable case " << nr_of_nodes[i] << " nodes.";
+                    break;
                 case 1:
                     cout << "\tUnfavorable case " << nr_of_nodes[i] << " nodes.";
                     break;
@@ -150,7 +165,8 @@ int main() {
             }
 
             initialization();
-            greate_graph(nr_of_nodes[i], j);
+            create_graph(nr_of_nodes[i], j);
+
             Prim(nr_of_nodes[i]);
             for (int i = 0; i < nr_of_nodes[i]; i++) {
                 parent[i] = 0;
@@ -159,7 +175,14 @@ int main() {
             Kruskal(nr_of_nodes[i]);
             cout << endl;
         }
+        display_graph(nr_of_nodes[i]);
     }
 
     return 0;
 }
+
+
+
+
+
+
