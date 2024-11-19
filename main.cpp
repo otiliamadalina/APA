@@ -37,7 +37,7 @@ void create_graph(int n, int dens) {
             }
 }
 
-void printGraf(int nr_of_nodes) {
+void display_graph(int nr_of_nodes) {
     for (int i = 0; i < nr_of_nodes; i++) {
         for (int j = 0; j < nr_of_nodes; j++)
             cout << setw(4) << cost[i][j] << " ";
@@ -91,7 +91,7 @@ void display_dijkstra(int n) {
     }
 }
 
-void display_floyd(int n, int D[][MAX]);
+//void display_floyd(int n, int D[][MAX]);
 
 void floyd(int n) {
     int D[n][n], i, j, k;
@@ -139,13 +139,13 @@ int main() {
         for (int j = 0; j < 3; j++) {
             switch (j) {
                 case 0:
-                    cout  << "\nCaz favorabil  " << nodes[i]  << " nodes" << endl;
+                    cout  << "\nFavorable case  " << nodes[i]  << " nodes" << endl;
                     break;
                 case 1:
-                    cout  << "\nCaz mediu  "  << nodes[i]  << " nodes" << endl;
+                    cout  << "\nAverage case  "  << nodes[i]  << " nodes" << endl;
                     break;
                 case 2:
-                    cout  << "\nCaz defavorabil  "  << nodes[i] << " nodes" << endl;
+                    cout  << "\nUnfavorable case  "  << nodes[i] << " nodes" << endl;
                     break;
             }
             initialization(nodes[i]);
